@@ -19,7 +19,6 @@ import com.guyi.class25a_sem_2.databinding.ActivityMainBinding;
 import com.guyi.countriesdata.CountriesUtil;
 
 import java.util.ArrayList;
-import java.util.Collections;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -40,8 +39,10 @@ public class MainActivity extends AppCompatActivity {
 
         ArrayList<String> names = CountriesUtil.getCountriesNames();
 
-        ArrayAdapter streetAdapter = new ArrayAdapter(this, R.layout.list_single_line, names);
-        ((AutoCompleteTextView) binding.EDTCountry.getEditText()).setAdapter(streetAdapter);
+        ArrayAdapter<String> streetAdapter = new ArrayAdapter<String>(this, R.layout.list_single_line, names);
+        AutoCompleteTextView view = (AutoCompleteTextView) binding.EDTCountry.getEditText();
+        assert view != null;
+        view.setAdapter(streetAdapter);
 
         ((MaterialAutoCompleteTextView) binding.EDTCountry.getEditText()).setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
