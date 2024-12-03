@@ -37,3 +37,14 @@ dependencies {
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
 }
+afterEvaluate {
+    publishing {
+        publications {
+            register<MavenPublication>("release") {
+                groupId = "com.guyi"
+                artifactId = "countriesdata"
+                version = "1.0.0"
+            }
+        }
+    }
+}
